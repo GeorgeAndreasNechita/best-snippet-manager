@@ -25,5 +25,8 @@ const electronHandler = {
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);
+contextBridge.exposeInMainWorld('myAPI', {
+  desktop: true
+})
 
 export type ElectronHandler = typeof electronHandler;
