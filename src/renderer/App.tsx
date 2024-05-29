@@ -1,30 +1,19 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
 import './App.css';
+import React, { useEffect } from 'react';
+
 
 function Hello() {
+  useEffect(() => {
+    console.log('Component has been mounted!');
+  }, []); // Empty dependency array ensures this only runs on mount
+
   return (
     <div>
       <h1>electron-react-boilerplate</h1>
       <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs1
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-        </a>
+        Andreas
       </div>
     </div>
   );
