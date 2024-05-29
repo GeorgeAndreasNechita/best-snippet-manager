@@ -9,7 +9,7 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import { app, BrowserWindow, shell, ipcMain, globalShortcut } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -127,6 +127,11 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
+    globalShortcut.register('Alt+O', () => {
+      console.log('Electron loves global shortcuts!')
+    })
+
+
     createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
