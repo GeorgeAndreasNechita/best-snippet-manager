@@ -7,7 +7,7 @@ import React, { useEffect } from 'react';
 function Hello() {
   useEffect(() => {
     console.log('Component has been mounted!');
-    console.log(window.myAPI)
+    console.log(window.myAPI())
   }, []); // Empty dependency array ensures this only runs on mount
 
   return (
