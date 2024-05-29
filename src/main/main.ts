@@ -14,8 +14,7 @@ import { autoUpdater } from "electron-updater";
 import log from "electron-log";
 import MenuBuilder from "./menu";
 import { resolveHtmlPath } from "./util";
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
 
 class AppUpdater {
   constructor() {
@@ -126,6 +125,12 @@ app.on("window-all-closed", () => {
   }
 });
 
+interface Snippet {
+  title: string;
+  content: string;
+}
+
+
 app
   .whenReady()
   .then(() => {
@@ -134,7 +139,7 @@ app
       const snippetsDir = path.join(__dirname, "snippets");
 
       const loadSnippets = () => {
-        const snippets = [];
+        const snippets: Snippet[] = [];
 
         try {
           const files = fs.readdirSync(snippetsDir);
