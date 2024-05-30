@@ -3,6 +3,7 @@ import { URL } from 'url';
 import fs from 'fs';
 import path from 'path';
 import { app, BrowserWindow, shell, ipcMain, globalShortcut } from 'electron';
+import { Snippet } from './interfaces';
 
 export function resolveHtmlPath(htmlFileName: string) {
   if (process.env.NODE_ENV === 'development') {
