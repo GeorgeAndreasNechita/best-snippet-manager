@@ -22,20 +22,15 @@ class AppUpdater {
     autoUpdater.checkForUpdatesAndNotify();
   }
 }
-
-let mainWindow: BrowserWindow | null = null;
-
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
 });
-
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
 }
-
 const isDebug =
   process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 
@@ -55,6 +50,8 @@ const installExtensions = async () => {
     )
     .catch(console.log);
 };
+
+let mainWindow: BrowserWindow | null = null;
 
 const createWindow = async () => {
   if (isDebug) {
@@ -112,9 +109,7 @@ const createWindow = async () => {
   new AppUpdater();
 };
 
-/**
- * Add event listeners...
- */
+/** Add event listeners... */
 
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
@@ -127,7 +122,7 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
-    hotkey1()
+    hotkey1();
     createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
