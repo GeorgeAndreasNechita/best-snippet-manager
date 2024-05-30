@@ -211,6 +211,16 @@ export default class MenuBuilder {
         ],
       },
       {
+        label: '&Core',
+        submenu: [
+          {
+            click: () => this.mainWindow.webContents.send('update-counter', +5),
+            label: '&Show input',
+          },
+
+        ],
+      },
+      {
         label: '&View',
         submenu:
           process.env.NODE_ENV === 'development' ||
