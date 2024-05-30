@@ -124,12 +124,6 @@ app.on('window-all-closed', () => {
   }
 });
 
-interface Snippet {
-  title: string;
-  content: string;
-}
-
-
 app
   .whenReady()
   .then(() => {
