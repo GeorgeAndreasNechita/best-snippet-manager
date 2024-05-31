@@ -5,10 +5,8 @@ import React, { useEffect, useState } from 'react';
 
 function Hello() {
   useEffect(() => {
-    console.log('Component has been mounted!');
-    console.log(window.myAPI());
+    console.log('Component has been mounted!', window.myAPI());
   }, []); // Empty dependency array ensures this only runs on mount
-  const [count, setCount] = useState(0); // Initialize count state to 0
 
 
   window.electronAPI.onUpdateCounter((snippets) => {
@@ -17,7 +15,7 @@ function Hello() {
 
   return (
     <div>
-      <h1>electron-react-boilerplate</h1>
+      <h1>electron-react-boil1erplate</h1>
     </div>
   );
 }
