@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { app, BrowserWindow, shell, ipcMain, globalShortcut } from 'electron';
 import { Snippet } from './interfaces';
+import {mainWindow} from './main'
 
 export function resolveHtmlPath(htmlFileName: string) {
   if (process.env.NODE_ENV === 'development') {
@@ -40,5 +41,6 @@ export function hotkey1() {
 
     const snippets = loadSnippets();
     console.log(snippets);
+    mainWindow?.webContents.send('update-counter', +5)
   });
 }

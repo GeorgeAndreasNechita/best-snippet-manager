@@ -51,7 +51,7 @@ const installExtensions = async () => {
     .catch(console.log);
 };
 
-let mainWindow: BrowserWindow | null = null;
+export let mainWindow: BrowserWindow | null = null;
 
 const createWindow = async () => {
   if (isDebug) {
