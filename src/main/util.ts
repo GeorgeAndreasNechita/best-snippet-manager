@@ -18,7 +18,6 @@ export function resolveHtmlPath(htmlFileName: string) {
 
 export function hotkey1() {
   globalShortcut.register('Alt+O', () => {
-    console.log('-----------ELECTRON LOVES GLOBAL SHORTCUTS!---------------');
     const snippetsDir = path.join(__dirname, 'snippets');
 
     const loadSnippets = () => {
