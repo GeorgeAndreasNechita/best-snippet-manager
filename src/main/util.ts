@@ -40,7 +40,6 @@ export function hotkey1() {
     };
 
     const snippets = loadSnippets();
-    console.log(snippets);
-    mainWindow?.webContents.send('update-counter', +5)
+    mainWindow?.webContents.send('update-counter', snippets)
   });
 }

@@ -10,19 +10,14 @@ function Hello() {
   }, []); // Empty dependency array ensures this only runs on mount
   const [count, setCount] = useState(0); // Initialize count state to 0
 
-  const incrementCount = () => {
-    setCount(count + 1); // Update count state by incrementing by 1
-  };
 
-  window.electronAPI.onUpdateCounter((value) => {
-    setCount(count + value)
+  window.electronAPI.onUpdateCounter((snippets) => {
+    console.log(snippets);
   })
 
   return (
     <div>
       <h1>electron-react-boilerplate</h1>
-      <p>Count: {count}</p>
-      <button onClick={incrementCount}>Increment</button>
     </div>
   );
 }
