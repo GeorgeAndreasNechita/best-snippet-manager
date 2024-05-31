@@ -9,7 +9,7 @@ function Hello() {
   }, []); // Empty dependency array ensures this only runs on mount
 
 
-  window.electronAPI.onUpdateCounter((snippets) => {
+  window.electronAPI.altOPressed((snippets) => {
     console.log(snippets);
   })
 

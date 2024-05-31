@@ -40,6 +40,6 @@ export function hotkey1() {
     };
 
     const snippets = loadSnippets();
-    mainWindow?.webContents.send('update-counter', snippets)
+    mainWindow?.webContents.send('altOPressed', snippets)
   });
 }

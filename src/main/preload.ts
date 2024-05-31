@@ -29,6 +29,6 @@ contextBridge.exposeInMainWorld('myAPI', () => {
   return 2
 })
 contextBridge.exposeInMainWorld('electronAPI', {
-  onUpdateCounter: (callback) => ipcRenderer.on('update-counter', (_event, value) => callback(value))
+  altOPressed: (callback) => ipcRenderer.on('altOPressed', (_event, value) => callback(value))
 })
 export type ElectronHandler = typeof electronHandler;
