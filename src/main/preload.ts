@@ -25,10 +25,10 @@ const electronHandler = {
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);
-contextBridge.exposeInMainWorld('myAPI', () => {
-  return 2
-})
 contextBridge.exposeInMainWorld('electronAPI', {
-  altOPressed: (callback) => ipcRenderer.on('altOPressed', (_event, value) => callback(value))
-})
+  altOPressed: (callback) =>
+    ipcRenderer.on('altOPressed', (_event, value) => callback(value)),
+  minimizeAndPaste: () => ipcRenderer.send('minimize-and-paste'),
+});
+
 export type ElectronHandler = typeof electronHandler;

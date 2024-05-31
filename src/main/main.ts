@@ -14,6 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath, hotkey1 } from './util';
+// const robot = require('robotjs');
 
 class AppUpdater {
   constructor() {
@@ -108,7 +109,9 @@ const createWindow = async () => {
   // eslint-disable-next-line
   new AppUpdater();
 };
-
+ipcMain.on('minimize-and-paste', (event) => {
+  mainWindow.minimize();
+});
 /** Add event listeners... */
 
 app.on('window-all-closed', () => {

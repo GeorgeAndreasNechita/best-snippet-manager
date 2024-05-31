@@ -8,7 +8,7 @@ function Hello() {
   const [snippetsArray, setSnippetsArray] = useState([]);
 
   useEffect(() => {
-    console.log('Component has been mounted!', window.myAPI());
+    console.log('Component has been mounted!');
 
     window.electronAPI.altOPressed((snippets) => {
       setSnippetsArray(snippets);
@@ -17,7 +17,7 @@ function Hello() {
   }, []); // Empty dependency array ensures this only runs on mount
 
   const pasteContent = (content) => {
-    console.log(content)
+    window.electronAPI.minimizeAndPaste();
   }
 
   return (
