@@ -16,12 +16,17 @@ function Hello() {
     });
   }, []); // Empty dependency array ensures this only runs on mount
 
+  const pasteContent = (content) => {
+    console.log(content)
+  }
+
   return (
     <div>
       {snippetsArray.map((item, index) => (
         <div key={index}>
           <h3>{item.title}</h3>
-          <p>{item.content}</p>
+          <button onClick={() => pasteContent(item.content)}>{item.content}</button>
+          <input type="text" />
         </div>
       ))}
     </div>
