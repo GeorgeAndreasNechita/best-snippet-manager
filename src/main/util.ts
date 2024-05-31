@@ -40,5 +40,6 @@ export function hotkey1() {
 
     const snippets = loadSnippets();
     mainWindow?.webContents.send('altOPressed', snippets)
+    mainWindow?.show()
   });
 }
